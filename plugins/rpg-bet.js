@@ -37,7 +37,7 @@ handler.before = async m => {
     try {
         if (/^y(es|a)?$/i.test(txt)) {
             let Bot = (Math.ceil(Math.random() * 91)) * 1
-            let Kamu = (Math.floor(Math.random() * 71)) * 1
+            let Kamu = (Math.floor(Math.random() * 51)) * 1
             let status = 'Kalah'
             if (Bot < Kamu) {
                 user.money += count * 1
