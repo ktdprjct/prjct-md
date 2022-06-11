@@ -1,3 +1,6 @@
+import fs from 'fs'
+import { readFileSync } from 'fs'
+
 const rewards = {
     exp: 50000,
     money: 49999,
@@ -15,7 +18,7 @@ let handler = async (m) => {
         user[reward] += rewards[reward]
         text += `*+${rewards[reward]}* ${rpg.emoticon(reward)}${reward}\n`
     }
-    m.reply(text)
+    conn.sendHydrated(m.chat, text, author, readFileSync('./src/logo.jpg'), linkgc, textnya, null, null, [[ null ]], null, { asLocation: true })                                 
     user.lastmonthly = new Date * 1
 }
 handler.help = ['monthly']
