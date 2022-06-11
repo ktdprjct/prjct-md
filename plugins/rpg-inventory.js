@@ -126,7 +126,7 @@ ${pets}` : ''}${cooldowns ? `
 *⌚ Cooldowns*
 ${cooldowns}` : ''}
 `.trim()
-  m.reply(caption)
+  conn.sendHydrated(m.chat, caption, author, 'https://telegra.ph/file/5bed485749a94af78d078.jpg', linkgc, textnya, null, null, [[ null ]], null, { asLocation: true })                                 
 }
 handler.help = ['inventory', 'inv']
 handler.tags = ['rpg']
