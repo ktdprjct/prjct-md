@@ -1,5 +1,5 @@
 const cooldown = 300000
-let handler = async (m, { usedPrefix }) => {
+let handler = async (m, { conn, usedPrefix }) => {
     let user = global.db.data.users[m.sender]
     let timers = (cooldown - (new Date - user.lastadventure))
     if (user.health < 80) return m.reply(`
@@ -23,7 +23,7 @@ You're already adventure!!, please wait *🕐${timers.toTimeString()}*
         user[rewardItem] += total * 1
         if (total) text += `\n*${global.rpg.emoticon(rewardItem)}${rewardItem}:* ${total}`
     }
-    m.reply(text.trim())
+    conn.sendHydrated(m.chat, text.trim(), author, 'https://telegra.ph/file/0ad816a09fa00dd2f134c.jpg', linkgc, textnya, null, null, [['Inventory', '.Inventory']], null, { asLocation: true })                                 
     user.lastadventure = new Date * 1
 }
 handler.help = ['adventure', 'petualang', 'berpetualang', 'mulung']
